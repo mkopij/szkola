@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów", "6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów\6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów.csproj", "{0CCDABE3-3667-49F0-A437-C11EF3577FBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CCDABE3-3667-49F0-A437-C11EF3577FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CCDABE3-3667-49F0-A437-C11EF3577FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CCDABE3-3667-49F0-A437-C11EF3577FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CCDABE3-3667-49F0-A437-C11EF3577FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F9F038F-2A27-4AC4-B8AF-650247AFB60B}
+	EndGlobalSection
+EndGlobal

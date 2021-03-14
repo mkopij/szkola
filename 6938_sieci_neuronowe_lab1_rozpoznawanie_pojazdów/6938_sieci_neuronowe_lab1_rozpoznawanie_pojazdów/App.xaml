@@ -1,0 +1,9 @@
+﻿<Application x:Class="_6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:_6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
