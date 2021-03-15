@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1000">
     <Grid>
-        
+        <TabControl Height="400" Width="950">
+            <TabItem Header="Test kompresji">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*" />
+                        <ColumnDefinition Width="200*" />
+                        <ColumnDefinition Width="200*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Margin="12,12,16,71" Name="imgPhotoBefore"
+                     Stretch="Fill" Grid.Column="1" />
+                    <Image Margin="12,12,16,71" Name="imgPhotoAfter"
+                    Stretch="Fill" Grid.Column="2" />
+                    <Button Height="23" HorizontalAlignment="Left"
+                    Margin="12,0,0,34" Name="btnLoad" VerticalAlignment="Bottom"
+                    Width="78" Grid.Column="1" Click="btnLoad_Click">_Zaladuj obraz</Button>
+                    <Button Height="23" HorizontalAlignment="Left"
+                    Margin="100,0,0,34" Name="btnCompress" VerticalAlignment="Bottom"
+                    Width="75" Grid.Column="2" Click="btnCompress_Click">_Kompresuj</Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Trenuj">
+                
+            </TabItem>
+            
+        </TabControl>
     </Grid>
 </Window>

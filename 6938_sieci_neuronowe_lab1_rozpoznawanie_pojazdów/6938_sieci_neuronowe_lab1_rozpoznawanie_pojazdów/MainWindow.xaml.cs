@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using Emgu.CV;
+using Emgu.CV.Structure;
+using Emgu.Util;
+using System.Drawing;
 
 namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
 {
@@ -23,6 +28,35 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private Image<Gray, byte> EmguImg = null;
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select a picture";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+              "Portable Network Graphic (*.png)|*.png";
+            if (op.ShowDialog() == true)
+            {
+                string file = op.FileName;
+                imgPhotoBefore.Source = new BitmapImage(new Uri(op.FileName));
+                EmguImg = PrzetwarzaczObrazow.kowertujImageNaEmgu(imgPhotoBefore);
+            }
+
+        }
+
+        private void btnCompress_Click(object sender, RoutedEventArgs e)
+        {
+            var imgKontrolka = imgPhotoBefore;
+            var imgEmgu = PrzetwarzaczObrazow.kowertujImageNaEmgu(imgKontrolka);
+
+            imgEmgu = PrzetwarzaczObrazow.kompresujObraz(imgEmgu);
+
+            PrzetwarzaczObrazow.umiescObrazEmguWKontrolceImage(imgEmgu, imgPhotoAfter);
+
         }
     }
 }
