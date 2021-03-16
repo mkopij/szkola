@@ -81,5 +81,18 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
 
         }
 
+        public static double[] normalizujWartosciPixeli(Image<Gray, Byte> obraz)
+        {
+            byte[] bajtyObrazu = obraz.Bytes;
+            double[] networkFeed = new double[bajtyObrazu.Count()];
+
+            for(int i = 0; i < bajtyObrazu.Length; i++)
+            {
+                networkFeed[i] = ((double)bajtyObrazu[i] / 256);
+            }
+
+            return networkFeed;
+        }
+
     }
 }

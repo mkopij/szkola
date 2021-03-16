@@ -17,6 +17,9 @@ using Emgu.CV;
 using Emgu.CV.Structure;
 using Emgu.Util;
 using System.Drawing;
+using System.Windows.Forms;
+using System.IO;
+using _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów.siecNeuronowa;
 
 namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
 {
@@ -34,7 +37,7 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog op = new OpenFileDialog();
+            Microsoft.Win32.OpenFileDialog op = new Microsoft.Win32.OpenFileDialog();
             op.Title = "Select a picture";
             op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
               "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
@@ -56,6 +59,20 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
             imgEmgu = PrzetwarzaczObrazow.kompresujObraz(imgEmgu);
 
             PrzetwarzaczObrazow.umiescObrazEmguWKontrolceImage(imgEmgu, imgPhotoAfter);
+
+        }
+
+        private void btnZaladujDane_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.DialogResult folder;
+
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                folder = dialog.ShowDialog();
+                string[] pliki = Directory.GetFiles(dialog.SelectedPath);
+
+                TrenerSieci.zaladujObrazy(pliki, listaObrazow_trening);
+            }
 
         }
     }

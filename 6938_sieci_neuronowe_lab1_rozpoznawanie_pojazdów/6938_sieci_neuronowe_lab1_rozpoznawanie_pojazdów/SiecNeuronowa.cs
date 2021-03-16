@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
 {
-    class SiecNeuronowa
+    public static class SiecNeuronowa
     {
     }
 }

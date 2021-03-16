@@ -28,7 +28,24 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Trenuj">
-                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*" />
+                        <ColumnDefinition Width="200*" />
+                        <ColumnDefinition Width="200*" />
+                    </Grid.ColumnDefinitions>
+                    <ListBox Margin="12,12,16,71" Name="listaObrazow_trening"
+                     Grid.Column="1" />
+                    <ListBox Margin="12,12,16,71"
+                     Grid.Column="2" />
+                    
+                    <Button Height="23" HorizontalAlignment="Left" Name="btnZaladujDane"
+                    Margin="12,0,0,34"  VerticalAlignment="Bottom"
+                    Width="78" Grid.Column="1" Click="btnZaladujDane_Click">_Zaladuj dane</Button>
+                    <Button Height="23" HorizontalAlignment="Left"
+                    Margin="100,0,0,34" VerticalAlignment="Bottom"
+                    Width="75" Grid.Column="2" Click="btnCompress_Click">Trenuj</Button>
+                </Grid>
             </TabItem>
             
         </TabControl>
