@@ -101,6 +101,7 @@
     <Compile Include="PrzetwarzaczObrazow.cs" />
     <Compile Include="SiecNeuronowa.cs" />
     <Compile Include="siecNeuronowa\TrenerSieci.cs" />
+    <Compile Include="Zdjecie.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

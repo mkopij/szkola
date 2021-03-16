@@ -25,10 +25,14 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów.siecNeuronowa
     public static class TrenerSieci
     {
         private static List<Image<Gray, Byte>> zbiorObrazowEmgu { get; set; }
+
+        static List<Obraz> zbiorObrazow { get; set; }
       //  private static List<System.Drawing.Image> zbiorObrazowImg { get; set; }
 
         public static void zaladujObrazy(string[] pliki, System.Windows.Controls.ListBox lista)
         {
+
+            //TODO dodac radioButtonList do okna, ktore bedzie pozwalac na wybor klasyfikacj, oraz usunac linijke dodaja klasyfikacje samochod
             string[] dozwoloneRozszerzenia = new string[]
             {
                 ".jpg", ".jpeg", ".png"
@@ -36,19 +40,33 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów.siecNeuronowa
 
             zbiorObrazowEmgu = new List<Image<Gray, byte>>();
 
-            foreach(string sciezka in pliki)
+            Image<Gray, Byte> obrazEmgu;
+            Klasyfikacja klasyfikacjaObrazu;
+
+            foreach (string sciezka in pliki)
             {
                 if(dozwoloneRozszerzenia.Contains(System.IO.Path.GetExtension(sciezka)))
-                { 
-                    Bitmap obrazImg = (Bitmap)System.Drawing.Image.FromFile(sciezka);
-                    zbiorObrazowEmgu.Add(new Image<Gray, byte>(obrazImg));
+                {
+                    obrazEmgu = new Image<Gray, byte>((Bitmap)System.Drawing.Image.FromFile(sciezka));
+                    klasyfikacjaObrazu = Klasyfikacja.Samochod;
+
+                    zbiorObrazow.Add(new Obraz(obrazEmgu, klasyfikacjaObrazu));
+
+                    // Bitmap obrazImg = (Bitmap)System.Drawing.Image.FromFile(sciezka);
+                    //zbiorObrazowEmgu.Add(new Image<Gray, byte>(obrazImg));
                 }
+
+
 
                 lista.Items.Add(sciezka);
             }
 
             zbiorObrazowEmgu = PrzetwarzaczObrazow.kompresujListeObrazow(zbiorObrazowEmgu);
-           
+
+
+
+            Obraz test = new Obraz(zbiorObrazowEmgu[0], Klasyfikacja.Samochod);
+
         }
     }
 }

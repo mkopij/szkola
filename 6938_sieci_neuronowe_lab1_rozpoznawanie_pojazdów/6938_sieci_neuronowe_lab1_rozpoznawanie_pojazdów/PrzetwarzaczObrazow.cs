@@ -55,7 +55,6 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
             wynik = new Image<Gray, byte>(bitmapa);
 
             return wynik;
-
         }
 
         public static void umiescObrazEmguWKontrolceImage(Image<Gray, byte> obrazEmgu, System.Windows.Controls.Image oknoImage)
@@ -77,8 +76,6 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
             }
 
             oknoImage.Source = obrazBitmapa;
-
-
         }
 
         public static double[] normalizujWartosciPixeli(Image<Gray, Byte> obraz)
