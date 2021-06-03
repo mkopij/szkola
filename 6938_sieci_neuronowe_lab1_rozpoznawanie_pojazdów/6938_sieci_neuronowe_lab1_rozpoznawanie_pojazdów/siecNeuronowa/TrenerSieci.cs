@@ -27,6 +27,8 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów.siecNeuronowa
         private static List<Image<Gray, Byte>> zbiorObrazowEmgu { get; set; }
 
         static List<Obraz> zbiorObrazow { get; set; }
+
+ 
       //  private static List<System.Drawing.Image> zbiorObrazowImg { get; set; }
 
         public static void zaladujObrazy(string[] pliki, System.Windows.Controls.ListBox lista)
@@ -39,6 +41,7 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów.siecNeuronowa
             };
 
             zbiorObrazowEmgu = new List<Image<Gray, byte>>();
+            zbiorObrazow = new List<Obraz>();
 
             Image<Gray, Byte> obrazEmgu;
             Klasyfikacja klasyfikacjaObrazu;
@@ -50,13 +53,9 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów.siecNeuronowa
                     obrazEmgu = new Image<Gray, byte>((Bitmap)System.Drawing.Image.FromFile(sciezka));
                     klasyfikacjaObrazu = Klasyfikacja.Samochod;
 
-                    zbiorObrazow.Add(new Obraz(obrazEmgu, klasyfikacjaObrazu));
-
-                    // Bitmap obrazImg = (Bitmap)System.Drawing.Image.FromFile(sciezka);
-                    //zbiorObrazowEmgu.Add(new Image<Gray, byte>(obrazImg));
+                    Obraz test = new Obraz(obrazEmgu, klasyfikacjaObrazu);
+                    zbiorObrazow.Add(test);
                 }
-
-
 
                 lista.Items.Add(sciezka);
             }
@@ -65,7 +64,7 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów.siecNeuronowa
 
 
 
-            Obraz test = new Obraz(zbiorObrazowEmgu[0], Klasyfikacja.Samochod);
+          //  Obraz test = new Obraz(zbiorObrazowEmgu[0], Klasyfikacja.Samochod);
 
         }
     }

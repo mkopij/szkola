@@ -9,7 +9,7 @@ using Emgu.Util;
 using System.Drawing;
 using System.Windows.Media.Imaging;
 using System.IO;
-
+using System.Windows.Forms;
 
 namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
 {
@@ -24,7 +24,7 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
         {
             var wyjsciowyObraz = oryginalnyObraz.Convert<Gray, Byte>(); // Wyszarza obraz
 
-            return wyjsciowyObraz.Resize(50, 50, Emgu.CV.CvEnum.Inter.Cubic, false); // Zmiejsza obraz i go zwraca
+            return wyjsciowyObraz.Resize(100, 100, Emgu.CV.CvEnum.Inter.Cubic, false); // Zmiejsza obraz i go zwraca
         }
 
         // Kompresuje cala liste obrazow
@@ -78,18 +78,25 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
             oknoImage.Source = obrazBitmapa;
         }
 
-        public static double[] normalizujWartosciPixeli(Image<Gray, Byte> obraz)
-        {
-            byte[] bajtyObrazu = obraz.Bytes;
-            double[] networkFeed = new double[bajtyObrazu.Count()];
 
+   public static double[] podzielNaPiksele(Image<Gray, Byte> obraz)
+        {
+            // Moze lepiej zwrocic double[x][y], gdzie x = y = sqrt(obraz.Bytes) ?? 
+
+            byte[] bajtyObrazu = obraz.Bytes;
+            double[] tablicaPikseli = new double[bajtyObrazu.Count()];
+            
             for(int i = 0; i < bajtyObrazu.Length; i++)
             {
-                networkFeed[i] = ((double)bajtyObrazu[i] / 256);
+                double bajt = (double)bajtyObrazu[i];
+                tablicaPikseli[i] = bajt / 256;
             }
 
-            return networkFeed;
+            MessageBox.Show(tablicaPikseli[0].ToString(), "(doublr) bajt / 256", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            return tablicaPikseli;
         }
 
+     
     }
 }

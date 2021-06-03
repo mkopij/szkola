@@ -38,7 +38,7 @@
                      Grid.Column="1" />
                     <ListBox Margin="12,12,16,71"
                      Grid.Column="2" />
-                    
+
                     <Button Height="23" HorizontalAlignment="Left" Name="btnZaladujDane"
                     Margin="12,0,0,34"  VerticalAlignment="Bottom"
                     Width="78" Grid.Column="1" Click="btnZaladujDane_Click">_Zaladuj dane</Button>
@@ -47,7 +47,29 @@
                     Width="75" Grid.Column="2" Click="btnCompress_Click">Trenuj</Button>
                 </Grid>
             </TabItem>
-            
+            <TabItem Header="Test">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="66*" />
+                        <ColumnDefinition Width="41*" />
+                        <ColumnDefinition Width="69*"/>
+                        <ColumnDefinition Width="329*"/>
+                        <ColumnDefinition Width="439*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Margin="12,12,16,71" Name="imgLoadedPhoto"
+                     Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="3" />
+                    <RichTextBox Margin="12,12,16,71" Name="result"
+                     Grid.Column="4" />
+                    <Button Height="23" HorizontalAlignment="Left"
+                    Margin="12,0,0,34" Name="btnLoadImage" VerticalAlignment="Bottom"
+                    Width="78" Grid.Column="1" Click="btnLoadImage_Click" Grid.ColumnSpan="2">_Zaladuj obraz</Button>
+                    <Button Height="23" HorizontalAlignment="Left"
+                    Margin="100,0,0,34" Name="btnCalculate" VerticalAlignment="Bottom"
+                    Width="75" Grid.Column="4" >_Identyfikuj</Button>
+                </Grid>
+            </TabItem>
+
+
         </TabControl>
     </Grid>
 </Window>

@@ -14,14 +14,13 @@ namespace _6938_sieci_neuronowe_lab1_rozpoznawanie_pojazdów
 {
      enum Klasyfikacja
     {
-        Auto = 1,
+        Nieznana = 0,
         Samochod = 1,
-        Tir = 2,
         Ciezarowka = 2,
         Rower = 3,
-        lodz = 4,
-        samolot = 5,
-        helikopter = 6
+        Lodz = 4,
+        Samolot = 5,
+        Helikopter = 6
 
     };
     class Obraz
